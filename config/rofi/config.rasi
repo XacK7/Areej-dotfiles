@@ -1,0 +1,15 @@
+configuration {
+    modi:                "drun,run";
+    show-icons:          true;
+    icon-theme:          "Papirus";
+    drun-display-format: "{name}";
+    display-drun:        "Applications";
+    display-run:         "Commandes";
+    font:                "Noto Sans 12";
+    terminal:            "foot";
+    sort:                true;
+    sorting-method:      "fzf";
+    case-sensitive:      false;
+}
+
+@theme "~/.config/rofi/theme.rasi"

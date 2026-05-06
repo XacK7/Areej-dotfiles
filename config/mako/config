@@ -1,0 +1,25 @@
+font=Noto Sans 11
+background-color=#2d2b3dee
+text-color=#f8f8f2
+border-color=#f48fb1
+progress-color=over #e91e8c
+
+border-radius=12
+border-size=2
+padding=10,14
+margin=8
+
+anchor=top-right
+max-icon-size=36
+icon-path=/usr/share/icons/Papirus
+
+default-timeout=5000
+ignore-timeout=0
+
+[urgency=low]
+border-color=#a8d8a8
+default-timeout=3000
+
+[urgency=high]
+border-color=#e91e8c
+default-timeout=0

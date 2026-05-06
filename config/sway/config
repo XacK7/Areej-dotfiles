@@ -1,0 +1,183 @@
+# Areej's Sway Config
+# Theme: pink & green / kawaii
+# Hardware: Pentium Dual Core, 4GB RAM, 1920x1080
+
+# ── Variables ──────────────────────────────────────────────────────────────
+set $mod Mod4
+set $term foot
+set $menu rofi -show drun -show-icons -theme ~/.config/rofi/theme.rasi
+set $browser firefox
+set $files thunar
+
+# ── Input ──────────────────────────────────────────────────────────────────
+input "type:keyboard" {
+    xkb_layout fr
+    repeat_delay 300
+    repeat_rate 30
+}
+
+input "type:pointer" {
+    accel_profile flat
+    pointer_accel 0
+}
+
+input "type:touchpad" {
+    tap enabled
+    natural_scroll disabled
+    dwt enabled
+    scroll_factor 0.5
+}
+
+# ── Output ─────────────────────────────────────────────────────────────────
+output * {
+    resolution 1920x1080
+    background /home/areej/wallpapers/wallpaper.jpg fill
+}
+
+# ── Appearance ─────────────────────────────────────────────────────────────
+font pango:Noto Sans 10
+
+default_border pixel 2
+default_floating_border pixel 2
+hide_edge_borders smart
+
+gaps inner 8
+gaps outer 4
+smart_gaps on
+
+# Colors:          border    bg        text      indicator child_border
+client.focused     #f48fb1   #2d2b3d   #f8f8f2   #e91e8c   #f48fb1
+client.unfocused   #44475a   #1e1b2e   #888888   #44475a   #44475a
+client.focused_inactive #44475a #1e1b2e #888888  #44475a   #44475a
+client.urgent      #e91e8c   #e91e8c   #f8f8f2   #e91e8c   #e91e8c
+client.background  #1e1b2e
+
+# ── Keybindings ────────────────────────────────────────────────────────────
+# --to-code ensures shortcuts work on FR (AZERTY) layout
+bindsym --to-code {
+
+    # Apps
+    $mod+Return      exec $term
+    $mod+d           exec $menu
+    $mod+Shift+f     exec $files
+    $mod+Shift+b     exec $browser
+    $mod+Shift+m     exec mpv --player-operation-mode=pseudo-gui --idle=yes
+
+    # Window management
+    $mod+Shift+q     kill
+    $mod+f           fullscreen toggle
+    $mod+Shift+space floating toggle
+    $mod+space       focus mode_toggle
+    $mod+a           focus parent
+
+    # Focus – vim keys
+    $mod+h focus left
+    $mod+j focus down
+    $mod+k focus up
+    $mod+l focus right
+    # Focus – arrow keys
+    $mod+Left  focus left
+    $mod+Down  focus down
+    $mod+Up    focus up
+    $mod+Right focus right
+
+    # Move – vim keys
+    $mod+Shift+h move left
+    $mod+Shift+j move down
+    $mod+Shift+k move up
+    $mod+Shift+l move right
+    # Move – arrow keys
+    $mod+Shift+Left  move left
+    $mod+Shift+Down  move down
+    $mod+Shift+Up    move up
+    $mod+Shift+Right move right
+
+    # Layout
+    $mod+b splith
+    $mod+v splitv
+    $mod+s layout stacking
+    $mod+w layout tabbed
+    $mod+e layout toggle split
+
+    # Workspaces
+    $mod+1 workspace number 1
+    $mod+2 workspace number 2
+    $mod+3 workspace number 3
+    $mod+4 workspace number 4
+    $mod+5 workspace number 5
+    $mod+6 workspace number 6
+
+    $mod+Shift+1 move container to workspace number 1
+    $mod+Shift+2 move container to workspace number 2
+    $mod+Shift+3 move container to workspace number 3
+    $mod+Shift+4 move container to workspace number 4
+    $mod+Shift+5 move container to workspace number 5
+    $mod+Shift+6 move container to workspace number 6
+
+    # Resize mode
+    $mod+r mode "resize"
+
+    # Screenshot
+    Print        exec grim -g "$(slurp)" ~/Images/capture-$(date +%Y%m%d-%H%M%S).png
+    $mod+Print   exec grim ~/Images/capture-$(date +%Y%m%d-%H%M%S).png
+
+    # Audio (PipeWire via wpctl)
+    XF86AudioRaiseVolume exec wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
+    XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    XF86AudioMute        exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    XF86AudioMicMute     exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+    # Media keys
+    XF86AudioPlay exec playerctl play-pause
+    XF86AudioNext exec playerctl next
+    XF86AudioPrev exec playerctl previous
+
+    # Brightness
+    XF86MonBrightnessUp   exec brightnessctl set 5%+
+    XF86MonBrightnessDown exec brightnessctl set 5%-
+
+    # Session
+    $mod+Shift+l exec ~/.config/sway/lock.sh
+    $mod+Shift+r reload
+    $mod+Shift+e exec swaynag \
+        -t warning \
+        -m 'Tu veux vraiment quitter ?' \
+        -B 'Oui, quitter' 'swaymsg exit' \
+        -b 'Non, rester' 'swaymsg nop'
+}
+
+mode "resize" {
+    bindsym --to-code {
+        h     resize shrink width  20px
+        j     resize grow   height 20px
+        k     resize shrink height 20px
+        l     resize grow   width  20px
+        Left  resize shrink width  20px
+        Down  resize grow   height 20px
+        Up    resize shrink height 20px
+        Right resize grow   width  20px
+        Return mode "default"
+        Escape mode "default"
+    }
+}
+
+# ── Floating rules ─────────────────────────────────────────────────────────
+for_window [app_id="thunar"]                floating enable, resize set 900 580, move position center
+for_window [app_id="imv"]                   floating enable
+for_window [app_id="mpv"]                   floating enable, resize set 960 540, move position center
+for_window [window_role="pop-up"]           floating enable
+for_window [window_role="dialog"]           floating enable
+for_window [title="File Operation Progress"] floating enable
+
+# ── Autostart ──────────────────────────────────────────────────────────────
+# exec_always kills and restarts bar + notifications on every sway reload
+exec_always ~/.config/sway/start.sh
+
+# One-time startup
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec xdg-user-dirs-update
+exec swayidle -w \
+    timeout 600  '~/.config/sway/lock.sh' \
+    timeout 900  'swaymsg "output * dpms off"' \
+    resume       'swaymsg "output * dpms on"' \
+    before-sleep '~/.config/sway/lock.sh'

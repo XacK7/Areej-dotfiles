@@ -1,0 +1,46 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 4,
+    "margin-top": 4,
+    "margin-left": 8,
+    "margin-right": 8,
+
+    "modules-left":   ["sway/workspaces", "sway/window"],
+    "modules-center": ["clock"],
+    "modules-right":  ["pulseaudio", "tray"],
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
+    },
+
+    "sway/window": {
+        "max-length": 50,
+        "format": "  {title}",
+        "tooltip": false
+    },
+
+    "clock": {
+        "format": "  {:%H:%M    %a %d %B}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
+        "locale": "fr_FR.UTF-8"
+    },
+
+    "pulseaudio": {
+        "format":       "{icon}  {volume}%",
+        "format-muted": "   muet",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "tooltip": false
+    },
+
+    "tray": {
+        "spacing": 8,
+        "icon-size": 18
+    }
+}

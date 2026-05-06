@@ -1,0 +1,75 @@
+/* Areej's Waybar — pink & green theme */
+
+* {
+    border:        none;
+    border-radius: 0;
+    font-family:   "Noto Sans", "Font Awesome 6 Free", sans-serif;
+    font-size:     13px;
+    min-height:    0;
+}
+
+window#waybar {
+    background:    rgba(30, 27, 46, 0.92);
+    color:         #f8f8f2;
+    border-bottom: 2px solid #f48fb1;
+}
+
+/* ── Workspaces ─────────────────────────────────────────── */
+#workspaces button {
+    padding:       2px 12px;
+    background:    transparent;
+    color:         #888888;
+    border-radius: 8px;
+    margin:        4px 2px;
+    transition:    all 0.15s ease;
+}
+
+#workspaces button.focused {
+    background:  #f48fb1;
+    color:       #1e1b2e;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    background: #e91e8c;
+    color:      #f8f8f2;
+}
+
+#workspaces button:hover {
+    background: rgba(244, 143, 177, 0.25);
+    color:      #f48fb1;
+}
+
+/* ── Window title ───────────────────────────────────────── */
+#window {
+    color:       #a8d8a8;
+    font-style:  italic;
+    padding:     0 8px;
+}
+
+/* ── Clock ──────────────────────────────────────────────── */
+#clock {
+    color:       #f48fb1;
+    font-weight: bold;
+    font-size:   14px;
+    padding:     0 12px;
+}
+
+/* ── Pulseaudio ─────────────────────────────────────────── */
+#pulseaudio {
+    color:   #a8d8a8;
+    padding: 0 12px;
+}
+
+#pulseaudio.muted {
+    color: #555555;
+}
+
+/* ── Tray ───────────────────────────────────────────────── */
+#tray {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}

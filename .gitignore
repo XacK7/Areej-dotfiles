@@ -1,0 +1,10 @@
+# Backup files created by setup.sh
+*.bak
+
+# Claude Code project files
+.claude/
+
+# Editor and OS junk
+.DS_Store
+*~
+*.swp
