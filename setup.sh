@@ -1,5 +1,5 @@
 #!/bin/bash
-# Configure l'environnement Areej : symlinks + wallpaper
+# Set up Areej's environment: symlinks + wallpaper download
 # Usage: ./setup.sh
 set -e
 
@@ -7,31 +7,31 @@ REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CFG="$HOME/.config"
 
 echo "==================================================="
-echo "  Configuration de l'environnement Areej"
+echo "  Areej's Environment — Setup"
 echo "==================================================="
 echo ""
 
 # ── Wallpaper ────────────────────────────────────────────
-echo "[1/3] Fond d'ecran..."
+echo "[1/3] Wallpaper..."
 mkdir -p "$HOME/wallpapers"
 if [ ! -f "$HOME/wallpapers/wallpaper.jpg" ]; then
     curl -L --progress-bar \
         "https://w.wallhaven.cc/full/yq/wallhaven-yqg6r7.jpg" \
         -o "$HOME/wallpapers/wallpaper.jpg"
-    echo "  Telecharge !"
+    echo "  Downloaded!"
 else
-    echo "  Deja present, rien a faire."
+    echo "  Already present, skipping."
 fi
 
 # ── XDG directories ──────────────────────────────────────
 echo ""
-echo "[2/3] Dossiers utilisateur (Images, Musique...)..."
+echo "[2/3] Creating user directories (Pictures, Music...)..."
 xdg-user-dirs-update
-mkdir -p "$HOME/Images"
+mkdir -p "$HOME/Pictures"
 
 # ── Symlinks ─────────────────────────────────────────────
 echo ""
-echo "[3/3] Creation des liens de configuration..."
+echo "[3/3] Linking config files..."
 
 link_config() {
     local name="$1"
@@ -41,7 +41,7 @@ link_config() {
     # Back up existing real directory
     if [ -e "$dest" ] && [ ! -L "$dest" ]; then
         mv "$dest" "${dest}.bak"
-        echo "  Sauvegarde : ${dest}.bak"
+        echo "  Backed up: ${dest}.bak"
     fi
 
     # Remove stale symlink
@@ -64,8 +64,8 @@ chmod +x "$REPO/config/sway/lock.sh"
 
 echo ""
 echo "==================================================="
-echo "  Configuration terminee !"
+echo "  All done!"
 echo ""
-echo "  Lance 'sway' dans le terminal pour demarrer."
-echo "  (ou redemarrer ta session si l'autologin est actif)"
+echo "  Run 'sway' in a terminal to start,"
+echo "  or restart your session if autologin is active."
 echo "==================================================="

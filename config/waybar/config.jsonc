@@ -26,12 +26,12 @@
     "clock": {
         "format": "  {:%H:%M    %a %d %B}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
-        "locale": "fr_FR.UTF-8"
+        "locale": "en_US.UTF-8"
     },
 
     "pulseaudio": {
         "format":       "{icon}  {volume}%",
-        "format-muted": "   muet",
+        "format-muted": "   muted",
         "format-icons": {
             "default": ["", "", ""]
         },

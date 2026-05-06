@@ -1,64 +1,64 @@
 # Areej Linux Config
 
-Environnement Sway minimal, theme rose et vert, pour Arch Linux.
-Concu pour un PC modeste (Pentium Dual Core, 4 Go de RAM) et une debutante.
+Minimal Sway environment with a pink and green theme, built for Arch Linux.
+Designed for a low-end machine (Pentium Dual Core, 4 GB RAM, 1920x1080).
 
-## Installation rapide
+## Quick install
 
 ```bash
-git clone https://github.com/<TON_COMPTE>/areej.git ~/linux-config
+git clone https://github.com/<YOUR_GITHUB>/areej.git ~/linux-config
 cd ~/linux-config
 chmod +x install.sh setup.sh
-./install.sh    # installe les paquets (necessite sudo)
-./setup.sh      # cree les liens et telecharge le fond d'ecran
+./install.sh    # installs packages (requires sudo)
+./setup.sh      # creates symlinks and downloads the wallpaper
 ```
 
-Ensuite relancer la session — Sway demarrera automatiquement.
+Then restart your session — Sway will start automatically via autologin.
 
-## Raccourcis clavier
+## Keyboard shortcuts
 
-| Touche | Action |
-|--------|--------|
-| Super + Entree | Ouvrir le terminal |
-| Super + D | Lancer une application |
-| Super + Maj + F | Gestionnaire de fichiers |
-| Super + Maj + B | Navigateur web |
-| Super + Maj + M | Lecteur multimedia (mpv) |
-| Super + Maj + Q | Fermer la fenetre |
-| Super + F | Plein ecran |
-| Super + Fleches | Changer de fenetre |
-| Super + 1 a 6 | Changer d'espace de travail |
-| Super + Maj + 1 a 6 | Deplacer fenetre vers cet espace |
-| Impr. Ecran | Capture d'une zone (clic-glisse) |
-| Super + Impr. Ecran | Capture d'ecran complet |
-| Super + Maj + L | Verrouiller l'ecran |
-| Super + Maj + R | Recharger la configuration |
-| Super + Maj + E | Quitter |
+| Key | Action |
+|-----|--------|
+| Super + Enter | Open terminal |
+| Super + D | Launch an app |
+| Super + Shift + F | File manager |
+| Super + Shift + B | Web browser |
+| Super + Shift + M | Media player (mpv) |
+| Super + Shift + Q | Close window |
+| Super + F | Fullscreen |
+| Super + Arrows | Move focus |
+| Super + 1 to 6 | Switch workspace |
+| Super + Shift + 1 to 6 | Move window to workspace |
+| Print Screen | Capture a region (click and drag) |
+| Super + Print Screen | Full screenshot |
+| Super + Shift + L | Lock screen |
+| Super + Shift + R | Reload config |
+| Super + Shift + E | Quit Sway |
 
-## Lecteurs multimedia
+## Media
 
-- **Images** : `imv photo.jpg` ou ouvrir depuis Thunar
-- **Videos / Musique** : `mpv fichier.mp4` ou Super + Maj + M
+- **Images**: `imv photo.jpg` or open from Thunar
+- **Video / Music**: `mpv file.mp4` or Super + Shift + M
 
-## Mise a jour de la config
+## Updating the config
 
 ```bash
 cd ~/linux-config
 git pull
-./setup.sh   # re-applique les liens si besoin
-# puis Super + Maj + R dans Sway pour recharger
+./setup.sh   # re-applies symlinks if needed
+# then Super + Shift + R in Sway to reload
 ```
 
 ## Structure
 
 ```
 linux-config/
-├── install.sh        # installe les paquets Arch
-├── setup.sh          # cree les symlinks + wallpaper
+├── install.sh        # installs Arch packages
+├── setup.sh          # symlinks configs + downloads wallpaper
 └── config/
-    ├── sway/         # config principale + scripts lock/start
-    ├── waybar/       # barre du haut (config + style)
-    ├── rofi/         # lanceur d'applications
+    ├── sway/         # main config + lock and start scripts
+    ├── waybar/       # top bar (config + stylesheet)
+    ├── rofi/         # app launcher
     ├── foot/         # terminal
     └── mako/         # notifications
 ```

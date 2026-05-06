@@ -4,7 +4,7 @@ configuration {
     icon-theme:          "Papirus";
     drun-display-format: "{name}";
     display-drun:        "Applications";
-    display-run:         "Commandes";
+    display-run:         "Commands";
     font:                "Noto Sans 12";
     terminal:            "foot";
     sort:                true;

@@ -1,10 +1,10 @@
 #!/bin/bash
-# Installation des paquets pour l'environnement Sway d'Areej
+# Install packages for Areej's Sway environment
 # Usage: ./install.sh
 set -e
 
 echo "==================================================="
-echo "  Installation de l'environnement Areej"
+echo "  Areej's Environment — Package Installation"
 echo "==================================================="
 echo ""
 
@@ -43,20 +43,19 @@ AUDIO=(
     wireplumber
 )
 
-echo "[1/3] Installation des paquets de base..."
+echo "[1/3] Installing base packages..."
 sudo pacman -S --needed --noconfirm "${BASE[@]}"
 
 echo ""
-echo "[2/3] Installation de PipeWire (audio)..."
+echo "[2/3] Installing PipeWire (audio)..."
 sudo pacman -S --needed --noconfirm "${AUDIO[@]}"
 
 echo ""
-echo "[3/3] Activation de PipeWire..."
+echo "[3/3] Enabling PipeWire..."
 systemctl --user enable --now pipewire pipewire-pulse wireplumber 2>/dev/null || \
-    echo "  (PipeWire deja actif ou session pas encore demarree — ok)"
+    echo "  (PipeWire already running or user session not started yet — that's fine)"
 
 echo ""
 echo "==================================================="
-echo "  Installation terminee !"
-echo "  Lance maintenant : ./setup.sh"
+echo "  Done! Now run: ./setup.sh"
 echo "==================================================="

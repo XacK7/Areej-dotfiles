@@ -118,8 +118,8 @@ bindsym --to-code {
     $mod+r mode "resize"
 
     # Screenshot
-    Print        exec grim -g "$(slurp)" ~/Images/capture-$(date +%Y%m%d-%H%M%S).png
-    $mod+Print   exec grim ~/Images/capture-$(date +%Y%m%d-%H%M%S).png
+    Print        exec grim -g "$(slurp)" ~/Pictures/capture-$(date +%Y%m%d-%H%M%S).png
+    $mod+Print   exec grim ~/Pictures/capture-$(date +%Y%m%d-%H%M%S).png
 
     # Audio (PipeWire via wpctl)
     XF86AudioRaiseVolume exec wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
@@ -141,9 +141,9 @@ bindsym --to-code {
     $mod+Shift+r reload
     $mod+Shift+e exec swaynag \
         -t warning \
-        -m 'Tu veux vraiment quitter ?' \
-        -B 'Oui, quitter' 'swaymsg exit' \
-        -b 'Non, rester' 'swaymsg nop'
+        -m 'Do you really want to quit Sway?' \
+        -B 'Yes, quit' 'swaymsg exit' \
+        -b 'No, stay' 'swaymsg nop'
 }
 
 mode "resize" {

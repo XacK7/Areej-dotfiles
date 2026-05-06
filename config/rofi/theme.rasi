@@ -45,7 +45,7 @@ prompt {
 entry {
     text-color:        @fg;
     placeholder-color: @muted;
-    placeholder:       "Rechercher...";
+    placeholder:       "Search...";
 }
 
 /* ── Results list ───────────────────────────── */
