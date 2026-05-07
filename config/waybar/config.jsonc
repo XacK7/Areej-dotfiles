@@ -7,9 +7,15 @@
     "margin-left": 8,
     "margin-right": 8,
 
-    "modules-left":   ["sway/workspaces", "sway/window"],
+    "modules-left":   ["custom/launcher", "sway/workspaces", "sway/window"],
     "modules-center": ["clock"],
     "modules-right":  ["pulseaudio", "tray"],
+
+    "custom/launcher": {
+        "format":   "",
+        "tooltip":  false,
+        "on-click": "~/.config/waybar/launcher.sh"
+    },
 
     "sway/workspaces": {
         "disable-scroll": true,

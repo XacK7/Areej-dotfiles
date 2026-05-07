@@ -11,7 +11,24 @@
 window#waybar {
     background:    rgba(30, 27, 46, 0.92);
     color:         #f8f8f2;
-    border-bottom: 2px solid #f48fb1;
+    border:        2px solid #f48fb1;
+    border-radius: 12px;
+}
+
+/* ── Start menu launcher ────────────────────────────────── */
+#custom-launcher {
+    color:         #f48fb1;
+    font-size:     16px;
+    padding:       0 14px;
+    margin:        4px 4px 4px 6px;
+    background:    rgba(244, 143, 177, 0.15);
+    border-radius: 8px;
+    transition:    all 0.15s ease;
+}
+
+#custom-launcher:hover {
+    background: rgba(244, 143, 177, 0.35);
+    color:      #f8f8f2;
 }
 
 /* ── Workspaces ─────────────────────────────────────────── */
