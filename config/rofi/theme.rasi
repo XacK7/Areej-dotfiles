@@ -24,37 +24,32 @@ window {
 
 mainbox {
     background-color: transparent;
-    children:         [ inputbar, listview ];
-    spacing:          10px;
+    children:         [ "textbox-banner", listview ];
+    spacing:          12px;
 }
 
-/* ── Search bar ─────────────────────────────── */
-inputbar {
-    background-color: @bg-alt;
+/* ── Banner (wallpaper) ─────────────────────── */
+textbox-banner {
+    expand:           false;
+    height:           110px;
+    background-image: url("/home/areej/wallpapers/wallpaper.jpg", width);
     border-radius:    10px;
-    padding:          8px 12px;
-    children:         [ prompt, entry ];
-    spacing:          8px;
+    str:              "";
 }
 
-prompt {
-    text-color: @pink;
-    font:       "Noto Sans Bold 12";
-}
-
-entry {
-    text-color:        @fg;
-    placeholder-color: @muted;
-    placeholder:       "Search...";
+/* ── Hidden inputbar (no search) ────────────── */
+inputbar {
+    enabled: false;
 }
 
 /* ── Results list ───────────────────────────── */
 listview {
     background-color: transparent;
     spacing:          4px;
-    lines:            8;
+    lines:            10;
     columns:          1;
     fixed-height:     false;
+    cycle:            true;
 }
 
 element {
@@ -63,6 +58,7 @@ element {
     background-color: transparent;
     orientation:      horizontal;
     spacing:          10px;
+    cursor:           pointer;
 }
 
 element selected {
@@ -80,7 +76,6 @@ element-text {
     text-color:       inherit;
 }
 
-/* No selected → hover feel via element selected already */
 element normal active {
     text-color: @green;
 }

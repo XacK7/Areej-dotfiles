@@ -10,6 +10,9 @@ configuration {
     sort:                true;
     sorting-method:      "fzf";
     case-sensitive:      false;
+    me-select-entry:     [ MousePrimary ];
+    me-accept-entry:     [ MousePrimary ];
+    hover-select:        true;
 }
 
 @theme "~/.config/rofi/theme.rasi"
