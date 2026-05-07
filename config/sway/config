@@ -75,6 +75,7 @@ client.background  #1e1b2e
 # Basics:
     bindsym $mod+Return exec $term
     bindsym $mod+Shift+w kill
+    bindsym Mod1+F4 kill
     bindsym $mod+d exec $menu
     floating_modifier $mod normal
     bindsym $mod+Shift+c reload
