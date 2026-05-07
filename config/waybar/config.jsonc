@@ -12,7 +12,7 @@
     "modules-right":  ["pulseaudio", "tray"],
 
     "custom/launcher": {
-        "format":   "",
+        "format":   "❀",
         "tooltip":  false,
         "on-click": "~/.config/waybar/launcher.sh"
     },

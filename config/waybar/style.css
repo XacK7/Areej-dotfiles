@@ -17,44 +17,65 @@ window#waybar {
 
 /* ── Start menu launcher ────────────────────────────────── */
 #custom-launcher {
-    color:         #f48fb1;
-    font-size:     16px;
-    padding:       0 14px;
-    margin:        4px 4px 4px 6px;
-    background:    rgba(244, 143, 177, 0.15);
-    border-radius: 8px;
-    transition:    all 0.15s ease;
+    color:            #f48fb1;
+    font-size:        18px;
+    font-weight:      bold;
+    padding:          0 14px;
+    margin:           4px 4px 4px 6px;
+    background:       rgba(244, 143, 177, 0.18);
+    background-image: none;
+    border-radius:    8px;
+    box-shadow:       none;
+    transition:       all 0.15s ease;
 }
 
 #custom-launcher:hover {
-    background: rgba(244, 143, 177, 0.35);
-    color:      #f8f8f2;
+    background:       rgba(244, 143, 177, 0.40);
+    background-image: none;
+    color:            #f8f8f2;
+    box-shadow:       none;
 }
 
 /* ── Workspaces ─────────────────────────────────────────── */
 #workspaces button {
-    padding:       2px 12px;
-    background:    transparent;
-    color:         #888888;
-    border-radius: 8px;
-    margin:        4px 2px;
-    transition:    all 0.15s ease;
+    padding:          2px 12px;
+    background:       transparent;
+    background-image: none;
+    color:            #888888;
+    border:           none;
+    border-radius:    8px;
+    margin:           4px 2px;
+    box-shadow:       none;
+    transition:       all 0.15s ease;
 }
 
 #workspaces button.focused {
-    background:  #f48fb1;
-    color:       #1e1b2e;
-    font-weight: bold;
+    background:       #f48fb1;
+    background-image: none;
+    color:            #1e1b2e;
+    font-weight:      bold;
+    box-shadow:       none;
 }
 
 #workspaces button.urgent {
-    background: #e91e8c;
-    color:      #f8f8f2;
+    background:       #e91e8c;
+    background-image: none;
+    color:            #f8f8f2;
+    box-shadow:       none;
 }
 
 #workspaces button:hover {
-    background: rgba(244, 143, 177, 0.25);
-    color:      #f48fb1;
+    background:       rgba(244, 143, 177, 0.30);
+    background-image: none;
+    color:            #f8f8f2;
+    box-shadow:       none;
+    border:           none;
+    text-shadow:      none;
+}
+
+#workspaces button.focused:hover {
+    background:       #ffb3d1;
+    color:            #1e1b2e;
 }
 
 /* ── Window title ───────────────────────────────────────── */
