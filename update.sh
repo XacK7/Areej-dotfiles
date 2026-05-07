@@ -48,8 +48,12 @@ echo "  Done."
 
 echo ""
 echo "[3/3] Reloading Sway (if running)..."
-if pgrep -x sway > /dev/null && [ -n "$SWAYSOCK$XDG_RUNTIME_DIR" ]; then
-    swaymsg reload && echo "  Reloaded."
+# Locate sway's IPC socket — needed when running over SSH where SWAYSOCK is unset
+if [ -z "$SWAYSOCK" ]; then
+    SWAYSOCK="$(ls /run/user/"$(id -u)"/sway-ipc.*.sock 2>/dev/null | head -1)"
+fi
+if [ -S "$SWAYSOCK" ]; then
+    SWAYSOCK="$SWAYSOCK" swaymsg reload > /dev/null && echo "  Reloaded."
 else
     echo "  Sway not running, skipping."
 fi
