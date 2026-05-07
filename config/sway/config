@@ -61,7 +61,6 @@ hide_edge_borders smart
 
 gaps inner 8
 gaps outer 4
-smart_gaps on
 
 # Colors:          border    bg        text      indicator child_border
 client.focused     #f48fb1   #2d2b3d   #f8f8f2   #e91e8c   #f48fb1
