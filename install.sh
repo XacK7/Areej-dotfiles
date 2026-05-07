@@ -12,8 +12,8 @@ echo ""
 BASE=(
     sway
     swaylock
-    swayidle
     waybar
+    neovim
     rofi-wayland
     foot
     mako

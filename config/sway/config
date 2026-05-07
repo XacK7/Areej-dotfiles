@@ -137,7 +137,7 @@ bindsym --to-code {
     XF86MonBrightnessDown exec brightnessctl set 5%-
 
     # Session
-    $mod+Shift+l exec ~/.config/sway/lock.sh
+    $mod+Shift+x exec ~/.config/sway/lock.sh
     $mod+Shift+r reload
     $mod+Shift+e exec swaynag \
         -t warning \
@@ -176,8 +176,3 @@ exec_always ~/.config/sway/start.sh
 # One-time startup
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec xdg-user-dirs-update
-exec swayidle -w \
-    timeout 600  '~/.config/sway/lock.sh' \
-    timeout 900  'swaymsg "output * dpms off"' \
-    resume       'swaymsg "output * dpms on"' \
-    before-sleep '~/.config/sway/lock.sh'

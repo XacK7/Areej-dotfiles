@@ -60,5 +60,6 @@ linux-config/
     ├── waybar/       # top bar (config + stylesheet)
     ├── rofi/         # app launcher
     ├── foot/         # terminal
-    └── mako/         # notifications
+    ├── mako/         # notifications
+    └── nvim/         # Neovim (lazy.nvim, LSP, telescope, neotree)
 ```
