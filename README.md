@@ -42,19 +42,38 @@ Then restart your session — Sway will start automatically via autologin.
 
 ## Updating the config
 
+**On the Areej machine** — pull, re-apply symlinks, and reload Sway in one step:
+
 ```bash
-cd ~/linux-config
-git pull
-./setup.sh   # re-applies symlinks if needed
-# then Super + Shift + R in Sway to reload
+cd ~/Areej-dotfiles
+./update.sh
 ```
+
+`update.sh` refuses to run if there are uncommitted local changes (so personal
+tweaks don't get clobbered silently). Commit, stash, or discard them first.
+
+**From a remote machine** (e.g. the dev box where you edit configs) — push and
+trigger the update over SSH in one step:
+
+```bash
+./deploy.sh                        # uses areej@192.168.1.9 by default
+AREEJ_HOST=areej@otherhost ./deploy.sh
+```
+
+`deploy.sh` runs `git push` then SSHes in and runs `update.sh`. Requires SSH
+key auth to the host.
+
+If `install.sh` changed (new packages added), `update.sh` will print a warning
+— rerun `./install.sh` on the Areej machine to install them.
 
 ## Structure
 
 ```
 linux-config/
-├── install.sh        # installs Arch packages
+├── install.sh        # installs Arch packages (sudo, run once)
 ├── setup.sh          # symlinks configs + downloads wallpaper
+├── update.sh         # pull + re-apply + sway reload (run on the Areej machine)
+├── deploy.sh         # push + remote update over SSH (run from your dev box)
 └── config/
     ├── sway/         # main config + lock and start scripts
     ├── waybar/       # top bar (config + stylesheet)
