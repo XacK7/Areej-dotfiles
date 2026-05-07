@@ -26,7 +26,7 @@ Then restart your session — Sway will start automatically via autologin.
 | Super + Shift + Q | Close window |
 | Super + F | Fullscreen |
 | Super + Arrows | Move focus |
-| Super + 1 to 6 | Switch workspace |
+| Super + & é " ' ( - | Switch workspace 1–6 (AZERTY top row) |
 | Super + Shift + 1 to 6 | Move window to workspace |
 | Print Screen | Capture a region (click and drag) |
 | Super + Print Screen | Full screenshot |
