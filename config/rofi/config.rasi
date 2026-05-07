@@ -10,7 +10,7 @@ configuration {
     sort:                true;
     sorting-method:      "fzf";
     case-sensitive:      false;
-    me-select-entry:     [ MousePrimary ];
+    me-select-entry:     [];
     me-accept-entry:     [ MousePrimary ];
     hover-select:        true;
 }
