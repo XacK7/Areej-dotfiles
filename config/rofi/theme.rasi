@@ -58,7 +58,6 @@ element {
     background-color: transparent;
     orientation:      horizontal;
     spacing:          10px;
-    cursor:           pointer;
 }
 
 element selected {
