@@ -6,9 +6,8 @@ Designed for a low-end machine (Pentium Dual Core, 4 GB RAM, 1920x1080).
 ## Quick install
 
 ```bash
-git clone https://github.com/<YOUR_GITHUB>/areej.git ~/linux-config
-cd ~/linux-config
-chmod +x install.sh setup.sh
+git clone https://github.com/XacK7/Areej-dotfiles.git ~/Areej-dotfiles
+cd ~/Areej-dotfiles
 ./install.sh    # installs packages (requires sudo)
 ./setup.sh      # creates symlinks and downloads the wallpaper
 ```
@@ -56,12 +55,17 @@ tweaks don't get clobbered silently). Commit, stash, or discard them first.
 trigger the update over SSH in one step:
 
 ```bash
-./deploy.sh                        # uses areej@192.168.1.9 by default
+# bash / Git Bash / Linux
+./deploy.sh
 AREEJ_HOST=areej@otherhost ./deploy.sh
+
+# Windows PowerShell
+.\deploy.ps1
+$env:AREEJ_HOST = "areej@otherhost"; .\deploy.ps1
 ```
 
-`deploy.sh` runs `git push` then SSHes in and runs `update.sh`. Requires SSH
-key auth to the host.
+`deploy.sh` / `deploy.ps1` runs `git push` then SSHes in and runs `update.sh`.
+Requires SSH key auth to the host.
 
 If `install.sh` changed (new packages added), `update.sh` will print a warning
 — rerun `./install.sh` on the Areej machine to install them.
@@ -73,7 +77,8 @@ linux-config/
 ├── install.sh        # installs Arch packages (sudo, run once)
 ├── setup.sh          # symlinks configs + downloads wallpaper
 ├── update.sh         # pull + re-apply + sway reload (run on the Areej machine)
-├── deploy.sh         # push + remote update over SSH (run from your dev box)
+├── deploy.sh         # push + remote update over SSH (bash / Git Bash / Linux)
+├── deploy.ps1        # same, for native Windows PowerShell
 └── config/
     ├── sway/         # main config + lock and start scripts
     ├── waybar/       # top bar (config + stylesheet)

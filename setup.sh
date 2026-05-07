@@ -59,10 +59,6 @@ link_config "foot"
 link_config "mako"
 link_config "nvim"
 
-# Make shell scripts executable
-chmod +x "$REPO/config/sway/start.sh"
-chmod +x "$REPO/config/sway/lock.sh"
-
 echo ""
 echo "==================================================="
 echo "  All done!"
