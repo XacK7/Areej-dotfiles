@@ -9,6 +9,24 @@ set $menu rofi -show drun -show-icons -theme ~/.config/rofi/theme.rasi
 set $browser firefox
 set $files thunar
 
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# AZERTY number row key mappings
+set $key_1 ampersand
+set $key_2 eacute
+set $key_3 quotedbl
+set $key_4 apostrophe
+set $key_5 parenleft
+set $key_6 minus
+set $key_7 egrave
+set $key_8 underscore
+set $key_9 ccedilla
+set $key_0 agrave
+
 # ── Input ──────────────────────────────────────────────────────────────────
 input "type:keyboard" {
     xkb_layout fr
@@ -53,115 +71,100 @@ client.urgent      #e91e8c   #e91e8c   #f8f8f2   #e91e8c   #e91e8c
 client.background  #1e1b2e
 
 # ── Keybindings ────────────────────────────────────────────────────────────
-# --to-code ensures shortcuts work on FR (AZERTY) layout
-bindsym --to-code {
+# Mirrors xack@192.168.1.9 verbatim (AZERTY layout).
+#
+# Basics:
+    bindsym $mod+Return exec $term
+    bindsym $mod+Shift+w kill
+    bindsym $mod+d exec $menu
+    floating_modifier $mod normal
+    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-    # Apps
-    $mod+Return      exec $term
-    $mod+d           exec $menu
-    $mod+Shift+f     exec $files
-    $mod+Shift+b     exec $browser
-    $mod+Shift+m     exec mpv --player-operation-mode=pseudo-gui --idle=yes
+# Moving around:
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
 
-    # Window management
-    $mod+Shift+q     kill
-    $mod+f           fullscreen toggle
-    $mod+Shift+space floating toggle
-    $mod+space       focus mode_toggle
-    $mod+a           focus parent
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
 
-    # Focus – vim keys
-    $mod+h focus left
-    $mod+j focus down
-    $mod+k focus up
-    $mod+l focus right
-    # Focus – arrow keys
-    $mod+Left  focus left
-    $mod+Down  focus down
-    $mod+Up    focus up
-    $mod+Right focus right
+# Workspaces:
+    bindsym $mod+$key_1 workspace number 1
+    bindsym $mod+$key_2 workspace number 2
+    bindsym $mod+$key_3 workspace number 3
+    bindsym $mod+$key_4 workspace number 4
+    bindsym $mod+$key_5 workspace number 5
+    bindsym $mod+$key_6 workspace number 6
+    bindsym $mod+$key_7 workspace number 7
+    bindsym $mod+$key_8 workspace number 8
+    bindsym $mod+$key_9 workspace number 9
+    bindsym $mod+$key_0 workspace number 10
 
-    # Move – vim keys
-    $mod+Shift+h move left
-    $mod+Shift+j move down
-    $mod+Shift+k move up
-    $mod+Shift+l move right
-    # Move – arrow keys
-    $mod+Shift+Left  move left
-    $mod+Shift+Down  move down
-    $mod+Shift+Up    move up
-    $mod+Shift+Right move right
+    bindsym $mod+Shift+$key_1 move container to workspace number 1
+    bindsym $mod+Shift+$key_2 move container to workspace number 2
+    bindsym $mod+Shift+$key_3 move container to workspace number 3
+    bindsym $mod+Shift+$key_4 move container to workspace number 4
+    bindsym $mod+Shift+$key_5 move container to workspace number 5
+    bindsym $mod+Shift+$key_6 move container to workspace number 6
+    bindsym $mod+Shift+$key_7 move container to workspace number 7
+    bindsym $mod+Shift+$key_8 move container to workspace number 8
+    bindsym $mod+Shift+$key_9 move container to workspace number 9
+    bindsym $mod+Shift+$key_0 move container to workspace number 10
 
-    # Layout
-    $mod+b splith
-    $mod+v splitv
-    $mod+s layout stacking
-    $mod+w layout tabbed
-    $mod+e layout toggle split
+    bindsym $mod+Ctrl+$right workspace next
+    bindsym $mod+Ctrl+$left workspace prev
 
-    # Workspaces — AZERTY top row: & é " ' ( -
-    # Switch with $mod alone, move with $mod+Shift+digit
-    # (Shift+& on AZERTY produces keysym "1", so the move bindings stay digit-named.)
-    $mod+ampersand   workspace number 1
-    $mod+eacute      workspace number 2
-    $mod+quotedbl    workspace number 3
-    $mod+apostrophe  workspace number 4
-    $mod+parenleft   workspace number 5
-    $mod+minus       workspace number 6
+# Layout:
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+    bindsym $mod+f fullscreen
+    bindsym $mod+Shift+space floating toggle
+    bindsym $mod+space focus mode_toggle
+    bindsym $mod+a focus parent
 
-    $mod+Shift+1 move container to workspace number 1
-    $mod+Shift+2 move container to workspace number 2
-    $mod+Shift+3 move container to workspace number 3
-    $mod+Shift+4 move container to workspace number 4
-    $mod+Shift+5 move container to workspace number 5
-    $mod+Shift+6 move container to workspace number 6
+# Scratchpad:
+    bindsym $mod+alt+minus move scratchpad
+    bindsym $mod+ctrl+minus scratchpad show
 
-    # Resize mode
-    $mod+r mode "resize"
-
-    # Screenshot
-    Print        exec grim -g "$(slurp)" ~/Pictures/capture-$(date +%Y%m%d-%H%M%S).png
-    $mod+Print   exec grim ~/Pictures/capture-$(date +%Y%m%d-%H%M%S).png
-
-    # Audio (PipeWire via wpctl)
-    XF86AudioRaiseVolume exec wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
-    XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-    XF86AudioMute        exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-    XF86AudioMicMute     exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-
-    # Media keys
-    XF86AudioPlay exec playerctl play-pause
-    XF86AudioNext exec playerctl next
-    XF86AudioPrev exec playerctl previous
-
-    # Brightness
-    XF86MonBrightnessUp   exec brightnessctl set 5%+
-    XF86MonBrightnessDown exec brightnessctl set 5%-
-
-    # Session
-    $mod+Shift+x exec ~/.config/sway/lock.sh
-    $mod+Shift+r reload
-    $mod+Shift+e exec swaynag \
-        -t warning \
-        -m 'Do you really want to quit Sway?' \
-        -B 'Yes, quit' 'swaymsg exit' \
-        -b 'No, stay' 'swaymsg nop'
-}
+# Resize:
+    bindsym $mod+r mode "resize"
 
 mode "resize" {
-    bindsym --to-code {
-        h     resize shrink width  20px
-        j     resize grow   height 20px
-        k     resize shrink height 20px
-        l     resize grow   width  20px
-        Left  resize shrink width  20px
-        Down  resize grow   height 20px
-        Up    resize shrink height 20px
-        Right resize grow   width  20px
-        Return mode "default"
-        Escape mode "default"
-    }
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
+
+# Utilities:
+    bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    bindsym Print exec grim
 
 # ── Floating rules ─────────────────────────────────────────────────────────
 for_window [app_id="thunar"]                floating enable, resize set 900 580, move position center

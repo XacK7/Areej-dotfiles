@@ -16,23 +16,31 @@ Then restart your session — Sway will start automatically via autologin.
 
 ## Keyboard shortcuts
 
+Bindings mirror xack's sway config (AZERTY).
+
 | Key | Action |
 |-----|--------|
-| Super + Enter | Open terminal |
-| Super + D | Launch an app |
-| Super + Shift + F | File manager |
-| Super + Shift + B | Web browser |
-| Super + Shift + M | Media player (mpv) |
-| Super + Shift + Q | Close window |
+| Super + Enter | Open terminal (foot) |
+| Super + D | App launcher (rofi) |
+| Super + Shift + W | Close window |
+| Super + Shift + C | Reload config |
+| Super + Shift + E | Quit Sway (with confirm dialog) |
+| Super + H J K L / Arrows | Move focus |
+| Super + Shift + H J K L / Arrows | Move window |
+| Super + & é " ' ( - è _ ç à | Switch to workspace 1–10 (AZERTY top row) |
+| Super + Shift + (same row) | Move window to workspace 1–10 |
+| Super + Ctrl + L / H | Next / previous workspace |
+| Super + B / V | Split horizontal / vertical |
+| Super + S / W / E | Stacking / tabbed / toggle split layout |
 | Super + F | Fullscreen |
-| Super + Arrows | Move focus |
-| Super + & é " ' ( - | Switch workspace 1–6 (AZERTY top row) |
-| Super + Shift + 1 to 6 | Move window to workspace |
-| Print Screen | Capture a region (click and drag) |
-| Super + Print Screen | Full screenshot |
-| Super + Shift + L | Lock screen |
-| Super + Shift + R | Reload config |
-| Super + Shift + E | Quit Sway |
+| Super + Shift + Space | Toggle floating |
+| Super + Space | Focus tiled ↔ floating |
+| Super + A | Focus parent container |
+| Super + R | Resize mode (then h/j/k/l or arrows; Esc / Enter to exit) |
+| Super + Alt + - | Send window to scratchpad |
+| Super + Ctrl + - | Show / cycle scratchpad |
+| Print | Screenshot (full screen, via grim) |
+| Volume / Mic / Brightness keys | Adjust via pactl / brightnessctl |
 
 ## Media
 
