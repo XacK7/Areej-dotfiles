@@ -31,7 +31,7 @@ mainbox {
 /* ── Banner (wallpaper) ─────────────────────── */
 textbox-banner {
     expand:           false;
-    height:           110px;
+    height:           170px;
     background-image: url("/home/areej/wallpapers/wallpaper.jpg", width);
     border-radius:    10px;
     str:              "";
