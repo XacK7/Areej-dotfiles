@@ -1,0 +1,120 @@
+:root {
+  --bg:        #1e1b2e;
+  --bg-alt:    #2d2b3d;
+  --fg:        #f8f8f2;
+  --accent:    #f48fb1;
+  --accent-2:  #e91e8c;
+  --ok:        #a8d8a8;
+  --muted:     #888888;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: "Noto Sans", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}
+
+#sidebar {
+  background: var(--bg-alt);
+  padding: 18px 14px;
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+#sidebar h1 {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 18px 4px;
+}
+
+#nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-link {
+  background: transparent;
+  border: 0;
+  color: var(--fg);
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.nav-link:hover { background: rgba(244,143,177,0.18); }
+.nav-link.active {
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: bold;
+}
+
+#content {
+  padding: 28px;
+  overflow: auto;
+}
+
+.panel-h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+button {
+  background: var(--accent);
+  color: var(--bg);
+  border: 0;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: bold;
+}
+button:hover { background: var(--accent-2); color: var(--fg); }
+button.ghost {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--muted);
+}
+
+input, textarea {
+  background: var(--bg-alt);
+  color: var(--fg);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font: inherit;
+}
+
+#toasts {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100;
+}
+.toast {
+  background: var(--bg-alt);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 4px;
+  min-width: 200px;
+}
+.toast.error { border-left-color: var(--accent-2); }
+.toast.success { border-left-color: var(--ok); }
