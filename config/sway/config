@@ -29,7 +29,9 @@ set $key_0 agrave
 
 # ── Input ──────────────────────────────────────────────────────────────────
 input "type:keyboard" {
-    xkb_layout fr
+    xkb_layout fr,ara
+    xkb_variant ,azerty
+    xkb_options grp:alt_shift_toggle
     repeat_delay 300
     repeat_rate 30
 }

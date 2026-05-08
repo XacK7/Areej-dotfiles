@@ -9,7 +9,7 @@
 
     "modules-left":   ["custom/launcher", "sway/workspaces", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right":  ["pulseaudio", "tray"],
+    "modules-right":  ["sway/language", "pulseaudio", "tray"],
 
     "custom/launcher": {
         "format":   "❀",
@@ -27,6 +27,12 @@
         "max-length": 50,
         "format": "  {title}",
         "tooltip": false
+    },
+
+    "sway/language": {
+        "format": "  {short}",
+        "tooltip-format": "{long}",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
     },
 
     "clock": {
