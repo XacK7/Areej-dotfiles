@@ -184,3 +184,4 @@ exec_always ~/.config/sway/start.sh
 # One-time startup
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec xdg-user-dirs-update
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
