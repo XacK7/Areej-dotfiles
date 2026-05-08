@@ -9,7 +9,7 @@
 
     "modules-left":   ["custom/launcher", "sway/workspaces", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right":  ["custom/weather", "sway/language", "pulseaudio", "tray"],
+    "modules-right":  ["custom/notes", "custom/weather", "sway/language", "pulseaudio", "tray"],
 
     "custom/launcher": {
         "format":   "❀",
@@ -27,6 +27,14 @@
         "max-length": 50,
         "format": "  {title}",
         "tooltip": false
+    },
+
+    "custom/notes": {
+        "exec":           "~/.config/waybar/notes.sh",
+        "return-type":    "json",
+        "interval":       30,
+        "on-click":       "~/.config/waybar/notes-list.sh",
+        "on-click-right": "~/.config/waybar/notes-add.sh"
     },
 
     "custom/weather": {

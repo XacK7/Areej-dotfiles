@@ -28,6 +28,7 @@ echo ""
 echo "[2/3] Creating user directories (Pictures, Music...)..."
 xdg-user-dirs-update
 mkdir -p "$HOME/Pictures"
+mkdir -p "$HOME/.local/share/waybar-notes"
 
 # ── Symlinks ─────────────────────────────────────────────
 echo ""

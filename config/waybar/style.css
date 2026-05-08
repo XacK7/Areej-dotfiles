@@ -93,6 +93,12 @@ window#waybar {
     padding:     0 12px;
 }
 
+/* ── Notes ──────────────────────────────────────────────── */
+#custom-notes {
+    color:   #f48fb1;
+    padding: 0 10px;
+}
+
 /* ── Weather ────────────────────────────────────────────── */
 #custom-weather {
     color:   #a8d8a8;
