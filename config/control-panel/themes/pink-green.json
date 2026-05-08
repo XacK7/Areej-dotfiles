@@ -1,0 +1,13 @@
+{
+  "name": "pink-green",
+  "label": "Pink & Green",
+  "colors": {
+    "bg":       "#1e1b2e",
+    "bg_alt":   "#2d2b3d",
+    "fg":       "#f8f8f2",
+    "accent":   "#f48fb1",
+    "accent_2": "#e91e8c",
+    "ok":       "#a8d8a8",
+    "muted":    "#888888"
+  }
+}

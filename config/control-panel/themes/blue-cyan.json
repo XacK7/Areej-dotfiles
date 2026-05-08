@@ -1,0 +1,13 @@
+{
+  "name": "blue-cyan",
+  "label": "Deep Blue & Cyan",
+  "colors": {
+    "bg":       "#0f1729",
+    "bg_alt":   "#1e2a44",
+    "fg":       "#e6edf3",
+    "accent":   "#7dd3fc",
+    "accent_2": "#0ea5e9",
+    "ok":       "#86efac",
+    "muted":    "#7d8590"
+  }
+}

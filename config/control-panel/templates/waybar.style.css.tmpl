@@ -1,0 +1,129 @@
+/* Areej's Waybar — pink & green theme */
+
+* {
+    border:        none;
+    border-radius: 0;
+    font-family:   "Noto Sans", "Font Awesome 6 Free", sans-serif;
+    font-size:     13px;
+    min-height:    0;
+}
+
+window#waybar {
+    background:    rgba({{colors.bg_rgb}}, 0.92);
+    color:         {{colors.fg}};
+    border:        2px solid {{colors.accent}};
+    border-radius: 12px;
+}
+
+/* ── Start menu launcher ────────────────────────────────── */
+#custom-launcher {
+    color:            {{colors.accent}};
+    font-size:        18px;
+    font-weight:      bold;
+    padding:          0 14px;
+    margin:           4px 4px 4px 6px;
+    background:       rgba({{colors.accent_rgb}}, 0.18);
+    background-image: none;
+    border-radius:    8px;
+    box-shadow:       none;
+    transition:       all 0.15s ease;
+}
+
+#custom-launcher:hover {
+    background:       rgba({{colors.accent_rgb}}, 0.40);
+    background-image: none;
+    color:            {{colors.fg}};
+    box-shadow:       none;
+}
+
+/* ── Workspaces ─────────────────────────────────────────── */
+#workspaces button {
+    padding:          2px 12px;
+    background:       transparent;
+    background-image: none;
+    color:            {{colors.muted}};
+    border:           none;
+    border-radius:    8px;
+    margin:           4px 2px;
+    box-shadow:       none;
+    transition:       all 0.15s ease;
+}
+
+#workspaces button.focused {
+    background:       {{colors.accent}};
+    background-image: none;
+    color:            {{colors.bg}};
+    font-weight:      bold;
+    box-shadow:       none;
+}
+
+#workspaces button.urgent {
+    background:       {{colors.accent_2}};
+    background-image: none;
+    color:            {{colors.fg}};
+    box-shadow:       none;
+}
+
+#workspaces button:hover {
+    background:       rgba({{colors.accent_rgb}}, 0.30);
+    background-image: none;
+    color:            {{colors.fg}};
+    box-shadow:       none;
+    border:           none;
+    text-shadow:      none;
+}
+
+#workspaces button.focused:hover {
+    background:       #ffb3d1;
+    color:            {{colors.bg}};
+}
+
+/* ── Window title ───────────────────────────────────────── */
+#window {
+    color:       {{colors.ok}};
+    font-style:  italic;
+    padding:     0 8px;
+}
+
+/* ── Clock ──────────────────────────────────────────────── */
+#clock {
+    color:       {{colors.accent}};
+    font-weight: bold;
+    font-size:   14px;
+    padding:     0 12px;
+}
+
+/* ── Notes ──────────────────────────────────────────────── */
+#custom-notes {
+    color:   {{colors.accent}};
+    padding: 0 10px;
+}
+
+/* ── Weather ────────────────────────────────────────────── */
+#custom-weather {
+    color:   {{colors.ok}};
+    padding: 0 10px;
+}
+
+#custom-weather.weather-error {
+    color: {{colors.muted}};
+}
+
+/* ── Pulseaudio ─────────────────────────────────────────── */
+#pulseaudio {
+    color:   {{colors.ok}};
+    padding: 0 12px;
+}
+
+#pulseaudio.muted {
+    color: #555555;
+}
+
+/* ── Tray ───────────────────────────────────────────────── */
+#tray {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}

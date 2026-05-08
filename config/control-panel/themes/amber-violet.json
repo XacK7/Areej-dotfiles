@@ -1,0 +1,13 @@
+{
+  "name": "amber-violet",
+  "label": "Amber & Violet",
+  "colors": {
+    "bg":       "#1c1033",
+    "bg_alt":   "#2a1a4d",
+    "fg":       "#f5e6d3",
+    "accent":   "#fbbf24",
+    "accent_2": "#a78bfa",
+    "ok":       "#86efac",
+    "muted":    "#9ca3af"
+  }
+}
