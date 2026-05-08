@@ -15,6 +15,8 @@ BASE=(
     waybar
     neovim
     rofi-wayland
+    rofimoji
+    cliphist
     foot
     mako
     imv
