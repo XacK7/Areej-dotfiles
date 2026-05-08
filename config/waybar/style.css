@@ -93,6 +93,16 @@ window#waybar {
     padding:     0 12px;
 }
 
+/* ── Weather ────────────────────────────────────────────── */
+#custom-weather {
+    color:   #a8d8a8;
+    padding: 0 10px;
+}
+
+#custom-weather.weather-error {
+    color: #888888;
+}
+
 /* ── Pulseaudio ─────────────────────────────────────────── */
 #pulseaudio {
     color:   #a8d8a8;

@@ -9,7 +9,7 @@
 
     "modules-left":   ["custom/launcher", "sway/workspaces", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right":  ["sway/language", "pulseaudio", "tray"],
+    "modules-right":  ["custom/weather", "sway/language", "pulseaudio", "tray"],
 
     "custom/launcher": {
         "format":   "❀",
@@ -27,6 +27,13 @@
         "max-length": 50,
         "format": "  {title}",
         "tooltip": false
+    },
+
+    "custom/weather": {
+        "exec":      "~/.config/waybar/weather.sh",
+        "return-type": "json",
+        "interval":  600,
+        "on-click":  "xdg-open https://wttr.in/Djelfa"
     },
 
     "sway/language": {
