@@ -11,3 +11,8 @@
 
 # Neovim plugin lockfile — gets auto-updated on plugin sync, not config
 config/nvim/lazy-lock.json
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
