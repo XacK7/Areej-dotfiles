@@ -174,6 +174,8 @@ mode "resize" {
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     bindsym Print exec grim
+    # Control panel (web-based settings)
+    bindsym $mod+Shift+s exec ~/.config/control-panel/launch.sh
 
 # ── Floating rules ─────────────────────────────────────────────────────────
 for_window [app_id="thunar"]                floating enable, resize set 900 580, move position center

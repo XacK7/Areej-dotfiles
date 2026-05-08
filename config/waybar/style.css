@@ -93,6 +93,12 @@ window#waybar {
     padding:     0 12px;
 }
 
+/* ── Control panel ──────────────────────────────────────── */
+#custom-control-panel {
+    color:   #f48fb1;
+    padding: 0 10px;
+}
+
 /* ── Notes ──────────────────────────────────────────────── */
 #custom-notes {
     color:   #f48fb1;

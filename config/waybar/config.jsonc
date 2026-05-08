@@ -9,7 +9,7 @@
 
     "modules-left":   ["custom/launcher", "sway/workspaces", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right":  ["custom/notes", "custom/weather", "sway/language", "pulseaudio", "tray"],
+    "modules-right":  ["custom/control-panel", "custom/notes", "custom/weather", "sway/language", "pulseaudio", "tray"],
 
     "custom/launcher": {
         "format":   "❀",
@@ -27,6 +27,12 @@
         "max-length": 50,
         "format": "  {title}",
         "tooltip": false
+    },
+
+    "custom/control-panel": {
+        "format":   "⚙",
+        "tooltip":  "Open control panel",
+        "on-click": "$HOME/.config/control-panel/launch.sh"
     },
 
     "custom/notes": {

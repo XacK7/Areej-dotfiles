@@ -29,6 +29,8 @@ echo "[2/3] Creating user directories (Pictures, Music...)..."
 xdg-user-dirs-update
 mkdir -p "$HOME/Pictures"
 mkdir -p "$HOME/.local/share/waybar-notes"
+mkdir -p "$HOME/.config/control-panel"
+mkdir -p "$HOME/.cache/control-panel"
 
 # ── Symlinks ─────────────────────────────────────────────
 echo ""
@@ -59,6 +61,7 @@ link_config "rofi"
 link_config "foot"
 link_config "mako"
 link_config "nvim"
+link_config "control-panel"
 
 echo ""
 echo "==================================================="
