@@ -6,7 +6,7 @@
 set $mod Mod4
 set $term foot
 set $menu rofi -show drun -show-icons -theme ~/.config/rofi/theme.rasi
-set $browser firefox
+set $browser chromium
 set $files thunar
 
 # Home row direction keys, like vim
@@ -77,6 +77,9 @@ client.background  #1e1b2e
     bindsym $mod+Shift+w kill
     bindsym Mod1+F4 kill
     bindsym $mod+d exec $menu
+    # Tap Super alone to open the launcher.
+    # Note: also fires on chord release; the second invocation no-ops since rofi is single-instance.
+    bindsym --release Super_L exec $menu
     floating_modifier $mod normal
     bindsym $mod+Shift+c reload
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'

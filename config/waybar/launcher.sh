@@ -8,7 +8,7 @@ THEME="$HOME/.config/rofi/theme.rasi"
 entry() { printf '%s\0icon\x1f%s\n' "$1" "$2"; }
 
 choice=$({
-    entry "Browser"    "firefox"
+    entry "Browser"    "chromium"
     entry "Files"      "system-file-manager"
     entry "Terminal"   "utilities-terminal"
     entry "Editor"     "accessories-text-editor"
@@ -21,7 +21,7 @@ choice=$({
 } | rofi -dmenu -i -show-icons -p "Launch" -theme "$THEME")
 
 case "$choice" in
-    Browser)    exec firefox ;;
+    Browser)    exec chromium ;;
     Files)      exec thunar ;;
     Terminal)   exec foot ;;
     Editor)     exec foot -e nvim ;;
