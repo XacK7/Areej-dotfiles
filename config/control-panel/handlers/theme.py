@@ -33,7 +33,7 @@ def _root_path(name: str) -> Path:
 def _state_dir() -> Path:
     p = Path(os.environ.get(
         "CONTROL_PANEL_STATE_DIR",
-        str(Path.home() / ".config/control-panel")
+        str(Path.home() / ".local/state/control-panel")
     ))
     p.mkdir(parents=True, exist_ok=True)
     return p

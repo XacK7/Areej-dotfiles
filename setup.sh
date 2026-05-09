@@ -1,5 +1,9 @@
 #!/bin/bash
-# Set up Areej's environment: symlinks + wallpaper download
+# Set up Areej's environment.
+# - App configs (sway/waybar/rofi/foot/mako/nvim) are *copied* into ~/.config so
+#   host-side edits and runtime writes (control panel themes, wallpapers, etc.)
+#   stay local and don't pollute the git working tree.
+# - control-panel itself stays *symlinked* — it's our code, follows the repo.
 # Usage: ./setup.sh
 set -e
 
@@ -25,42 +29,64 @@ fi
 
 # ── XDG directories ──────────────────────────────────────
 echo ""
-echo "[2/3] Creating user directories (Pictures, Music...)..."
+echo "[2/3] Creating user directories..."
 xdg-user-dirs-update
 mkdir -p "$HOME/Pictures"
 mkdir -p "$HOME/.local/share/waybar-notes"
-mkdir -p "$HOME/.config/control-panel"
+mkdir -p "$HOME/.local/state/control-panel"
 mkdir -p "$HOME/.cache/control-panel"
 
-# ── Symlinks ─────────────────────────────────────────────
+# ── App configs: copy from repo (host-local after install) ────────
 echo ""
-echo "[3/3] Linking config files..."
+echo "[3/3] Installing configs..."
+
+copy_config() {
+    local name="$1"
+    local src="$REPO/config/$name"
+    local dest="$CFG/$name"
+
+    # Convert legacy symlink (old setup) to a real copy
+    if [ -L "$dest" ]; then
+        rm "$dest"
+    fi
+
+    if [ -e "$dest" ]; then
+        echo "  $dest already exists — leaving alone"
+        echo "    (delete it and rerun ./setup.sh to redeploy from repo)"
+        return
+    fi
+
+    mkdir -p "$(dirname "$dest")"
+    cp -r "$src" "$dest"
+    echo "  $dest <- $src (copy)"
+}
 
 link_config() {
     local name="$1"
     local src="$REPO/config/$name"
     local dest="$CFG/$name"
 
-    # Back up existing real directory
     if [ -e "$dest" ] && [ ! -L "$dest" ]; then
         mv "$dest" "${dest}.bak"
         echo "  Backed up: ${dest}.bak"
     fi
 
-    # Remove stale symlink
     [ -L "$dest" ] && rm "$dest"
 
     mkdir -p "$(dirname "$dest")"
     ln -sf "$src" "$dest"
-    echo "  $dest -> $src"
+    echo "  $dest -> $src (symlink)"
 }
 
-link_config "sway"
-link_config "waybar"
-link_config "rofi"
-link_config "foot"
-link_config "mako"
-link_config "nvim"
+# App configs: real copies, host owns them after first install
+copy_config "sway"
+copy_config "waybar"
+copy_config "rofi"
+copy_config "foot"
+copy_config "mako"
+copy_config "nvim"
+
+# Control panel: symlink so code edits in the repo apply immediately
 link_config "control-panel"
 
 echo ""

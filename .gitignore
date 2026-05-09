@@ -16,3 +16,10 @@ config/nvim/lazy-lock.json
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# Control-panel runtime state (now lives in ~/.local/state/control-panel)
+# Defensive ignores in case stray writes ever land here again.
+config/control-panel/backup/
+config/control-panel/theme.current.json
+config/control-panel/wallpaper.current
+config/control-panel/wallpaper.dir
